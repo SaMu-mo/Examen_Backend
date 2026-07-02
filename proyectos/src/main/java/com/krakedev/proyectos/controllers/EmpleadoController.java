@@ -6,6 +6,15 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import com.krakedev.proyectos.entidades.Empleado;
 import com.krakedev.proyectos.services.EmpleadoService;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@CrossOrigin(
+	    origins = "http://localhost:5173",
+	    methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE},
+	    allowedHeaders = {"Authorization", "Content-Type"}
+	)
+
 
 @RestController
 @RequestMapping("/api/empleados")
