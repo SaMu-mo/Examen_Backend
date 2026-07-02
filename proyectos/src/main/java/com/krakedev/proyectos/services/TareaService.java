@@ -11,8 +11,14 @@ public class TareaService {
 
     @Autowired
     private TareaRepository tareaRepository;
-
     public Tarea guardar(Tarea tarea) {
+        String prioridad = tarea.getPrioridad();
+        if (prioridad == null
+                || (!prioridad.equals("ALTA")
+                && !prioridad.equals("MEDIA")
+                && !prioridad.equals("BAJA"))) {
+            throw new IllegalArgumentException("Prioridad no válida");
+        }
         return tareaRepository.save(tarea);
     }
 
