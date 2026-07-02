@@ -64,4 +64,13 @@ public class ProyectoController {
             return ResponseEntity.internalServerError().body(e.getMessage());
         }
     }
+    
+    @GetMapping("/publico/resumen")
+    public ResponseEntity<?> resumenPublico() {
+        try {
+            return ResponseEntity.ok(proyectoService.contarProyectos());
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(e.getMessage());
+        }
+    }
 }

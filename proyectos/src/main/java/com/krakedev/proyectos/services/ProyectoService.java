@@ -19,6 +19,9 @@ public class ProyectoService {
     public List<Proyecto> listar() {
         return proyectoRepository.findAll();
     }
+    public Long contarProyectos() {
+        return proyectoRepository.count();
+    }
 
     public Proyecto buscarPorId(int id) {
         return proyectoRepository.findById(id).orElse(null);
